@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahesh Madhav</title>
+  <meta name="description" content="Mahesh M — Creative Designer, Video Editor and Computer Engineer from Kasaragod, Kerala, India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <span class="cross cross-h"></span><span class="cross cross-v"></span>
+    <div class="loader-ring">
+      <svg viewBox="0 0 200 200"><circle class="ring-bg" cx="100" cy="100" r="90"/><circle class="ring-fill" id="ringFill" cx="100" cy="100" r="90"/></svg>
+      <span class="loader-num" id="loaderNum">3</span>
+    </div>
+    <span class="loader-label mono">ROLLING · TAKE 01</span>
+  </div>
+
+  <div class="grain"></div>
+  <div class="glow glow-blue"></div>
+  <div class="glow glow-red"></div>
+  <div class="cursor" id="cursor"><span id="cursorText"></span></div>
+
+  <nav class="nav">
+    <a class="brand" href="#top" data-cursor="HI!">MAHESH<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#digital">Digital</a><a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact" data-cursor="HI!">LET'S TALK ↗</a>
+  </nav>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="viewfinder">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="vf-top mono"><span class="rec"><b>●</b> REC · CAM_01</span><span id="timecode">00:00:00:00</span></div>
+        <div class="vf-bottom mono"><span>KERALA / INDIA</span><span>SCROLL TO EXPLORE ↓</span><span>4K · 24FPS</span></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1 class="hero-name" aria-label="Mahesh"><span>M</span><span>A</span><span>H</span><span>E</span><span>S</span><span>H</span></h1>
+          <div class="role-wrap"><span class="role outline" id="role" data-text="CREATIVE DESIGNER">CREATIVE DESIGNER</span></div>
+          <p class="tagline">Visual storytelling meets technology.</p>
+        </div>
+        <div class="hero-visual" id="heroVisual">
+          <div class="red-circle"></div>
+          <img class="hero-photo" id="heroPhoto" src="assets/character-arms-crossed.png" alt="Mahesh with arms crossed">
+          <span class="note hero-note">edit. create. build!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIPS -->
+    <section class="strips">
+      <div class="strip strip-red"><div class="strip-track" data-dir="1"></div></div>
+      <div class="strip strip-cream"><div class="strip-track" data-dir="-1"></div></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+      <div class="about-card reveal">
+        <img class="parallax" id="sitPhoto" src="assets/character-sitting.png" alt="Mahesh sitting" loading="lazy">
+        <span class="note about-note">a little about me ↘</span>
+        <div class="stamp">
+          <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text><textPath href="#circ">CREATIVE · EDITOR · ENGINEER · </textPath></text></svg>
+          <b>✦</b>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="label mono">[ 01 — ABOUT ]</span>
+        <h2 class="heading mask"><span class="line"><span>HI, I'M</span></span><span class="line"><span class="red">MAHESH M</span></span></h2>
+        <p class="bio reveal">Diploma in Computer Engineering graduate, now studying Data Analytics at Luminar, Kozhikode. Works where creative editing, visual design and technology meet.</p>
+        <div class="stats reveal">
+          <div><strong><span class="count" data-to="5">0</span>+</strong><small class="mono">VIDEO EDITS</small></div>
+          <div><strong><span class="count" data-to="4">0</span></strong><small class="mono">DIGITAL BUILDS</small></div>
+          <div><strong><span class="count" data-to="6">0</span></strong><small class="mono">DISCIPLINES</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services section" id="services">
+      <span class="label mono">[ 02 — WHAT I DO ]</span>
+      <h2 class="heading mask big"><span class="line"><span>CREATE VISUALS.</span></span><span class="line"><span>EDIT STORIES.</span></span><span class="line"><span class="outline-red">BUILD EXPERIENCES.</span></span></h2>
+      <div class="service-list">
+        <div class="service" data-color="#ff3b2f" data-cursor="OPEN"><span class="mono">01</span><h3>Video Editing</h3><p>Story-driven cuts, pacing, color and sound.</p></div>
+        <div class="service" data-color="#4d5bff" data-cursor="OPEN"><span class="mono">02</span><h3>Motion Design</h3><p>Kinetic type and animated graphics in After Effects.</p></div>
+        <div class="service" data-color="#ffb02e" data-cursor="OPEN"><span class="mono">03</span><h3>Graphic Design</h3><p>Posters, social visuals and brand assets.</p></div>
+        <div class="service" data-color="#1fc8a0" data-cursor="OPEN"><span class="mono">04</span><h3>Web / UI</h3><p>Clean interfaces and responsive websites.</p></div>
+        <div class="service" data-color="#b45cff" data-cursor="OPEN"><span class="mono">05</span><h3>3D / Blender</h3><p>Models, renders and 3D scenes.</p></div>
+        <div class="service" data-color="#f4ecdf" data-cursor="OPEN"><span class="mono">06</span><h3>Creative Tech</h3><p>Tools and experiments where code meets craft.</p></div>
+      </div>
+      <div class="service-preview" id="servicePreview"><span class="mono">PREVIEW</span></div>
+    </section>
+
+    <!-- WORK -->
+    <section class="work section" id="work">
+      <span class="label mono">[ 03 — TIMELINE ]</span>
+      <h2 class="heading mask big"><span class="line"><span>MY WORK<span class="red">.</span></span></span></h2>
+      <div class="timeline reveal">
+        <div class="ruler mono" id="ruler"><div class="playhead" id="playhead"></div></div>
+        <div class="track" id="track">
+          <article class="clip" data-video="assets/project-01.mp4" data-title="Edit 01 — Video Editing" data-cursor="PLAY" style="--g1:#ff3b2f;--g2:#5a1030"><div class="glare"></div><span class="tag mono">CLIP_01.MP4</span><span class="big-num">01</span><div class="play">▶</div><div class="clip-info"><h4>Edit 01</h4><small class="mono">VIDEO EDITING</small></div><div class="wave"></div></article>
+          <article class="clip" data-video="assets/project-02.mp4" data-title="Edit 02 — Cinematic" data-cursor="PLAY" style="--g1:#3245ff;--g2:#120f40"><div class="glare"></div><span class="tag mono">CLIP_02.MP4</span><span class="big-num">02</span><div class="play">▶</div><div class="clip-info"><h4>Edit 02</h4><small class="mono">CINEMATIC</small></div><div class="wave"></div></article>
+          <article class="clip tall" data-video="assets/project-03.mp4" data-title="Edit 03 — Reel / Portrait" data-cursor="PLAY" style="--g1:#ffb02e;--g2:#7a2a10"><div class="glare"></div><span class="tag mono">CLIP_03.MP4</span><span class="big-num">03</span><div class="play">▶</div><div class="clip-info"><h4>Edit 03</h4><small class="mono">REEL / PORTRAIT</small></div><div class="wave"></div></article>
+          <article class="clip" data-video="assets/project-04.mp4" data-title="Edit 04 — Motion / Story" data-cursor="PLAY" style="--g1:#1fc8a0;--g2:#0c3a40"><div class="glare"></div><span class="tag mono">CLIP_04.MP4</span><span class="big-num">04</span><div class="play">▶</div><div class="clip-info"><h4>Edit 04</h4><small class="mono">MOTION / STORY</small></div><div class="wave"></div></article>
+          <article class="clip" data-video="assets/project-05.mp4" data-title="Edit 05 — Video Editing" data-cursor="PLAY" style="--g1:#b45cff;--g2:#2a0f50"><div class="glare"></div><span class="tag mono">CLIP_05.MP4</span><span class="big-num">05</span><div class="play">▶</div><div class="clip-info"><h4>Edit 05</h4><small class="mono">VIDEO EDITING</small></div><div class="wave"></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIGITAL -->
+    <section class="digital section" id="digital">
+      <div class="digital-head">
+        <div><span class="label mono">[ 04 — DIGITAL WORK ]</span>
+          <h2 class="heading mask big"><span class="line"><span>BUILDING</span></span><span class="line"><span class="outline">THINGS.</span></span></h2></div>
+        <img class="digital-photo reveal" src="assets/character-arms-crossed-2.png" alt="Mahesh standing" loading="lazy">
+      </div>
+      <div class="projects">
+        <a class="project" href="https://humblelyy.github.io/HumbleStudio/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">01</span><h3>Humble Studio</h3><small class="mono">WEB · STUDIO</small><i class="arrow">↗</i></a>
+        <a class="project" href="https://humblelyy.github.io/HumbleStudioTool/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">02</span><h3>Humble Studio Tool</h3><small class="mono">TOOL · WEB APP</small><i class="arrow">↗</i></a>
+        <a class="project" href="https://humblelyy.github.io/HumbleStudio/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">03</span><h3>AE Downgrader</h3><small class="mono">AFTER EFFECTS · UTILITY</small><i class="arrow">↗</i></a>
+        <a class="project" href="https://campusconnect43.42web.io/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">04</span><h3>Campus Connect</h3><small class="mono">PLATFORM · WEB</small><i class="arrow">↗</i></a>
+      </div>
+    </section>
+
+    <!-- CURRENTLY -->
+    <section class="section">
+      <div class="now reveal">
+        <div class="now-text">
+          <span class="label mono">[ 05 — CURRENTLY ]</span>
+          <h2 class="heading mask big"><span class="line"><span>LEARNING</span></span><span class="line"><span class="red">DATA.</span></span></h2>
+          <p>Currently studying Data Analytics at Luminar, Kozhikode — learning to find the story inside numbers, the same way an editor finds it inside footage.</p>
+          <div class="tags mono"><span>DATA ANALYTICS</span><span>CREATIVE TECH</span><span>EDITING</span></div>
+        </div>
+        <div class="chart" id="chart">
+          <i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:50%"></i><i style="--h:85%"></i><i style="--h:70%"></i><i style="--h:95%"></i><i style="--h:60%"></i>
+        </div>
+        <img class="now-photo" src="assets/character-back.png" alt="Mahesh from behind" loading="lazy">
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <span class="hello outline">HELLO</span>
+      <span class="label mono">[ 06 — CONTACT ]</span>
+      <h2 class="lets" id="lets"></h2>
+      <p class="contact-copy">Have a project, an edit or a digital idea? Let's make something worth watching.</p>
+      <a class="email" id="email" href="mailto:maheshmadhav620@gmail.com" data-cursor="SEND"><span>maheshmadhav620@gmail.com ↗</span></a>
+      <div class="socials mono">
+        <a href="https://instagram.com/learn_with.humble" target="_blank" rel="noreferrer" data-cursor="HI!">INSTAGRAM / EDITING</a>
+        <a href="https://instagram.com/humble.y" target="_blank" rel="noreferrer" data-cursor="HI!">INSTAGRAM / PERSONAL</a>
+        <a href="https://youtube.com/@humbleae" target="_blank" rel="noreferrer" data-cursor="HI!">YOUTUBE</a>
+        <a href="https://linkedin.com/in/mahesh-madhav-602683357" target="_blank" rel="noreferrer" data-cursor="HI!">LINKEDIN</a>
+        <a href="https://github.com/humblelyy" target="_blank" rel="noreferrer" data-cursor="HI!">GITHUB</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><small class="mono">DIRECTED BY</small><strong>MAHESH M</strong></div>
+    <div><small class="mono">EDITED IN</small><strong>AFTER EFFECTS · BLENDER</strong></div>
+    <div><small class="mono">© 2026</small><strong>AKA HUMBLE</strong></div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-head mono"><span class="rec"><b>●</b> PLAYBACK</span><span id="modalTitle"></span></div>
+      <div class="player">
+        <video id="video" playsinline preload="metadata"></video>
+        <div class="video-fallback mono" id="videoFallback">CLIP OFFLINE — ADD FILE TO /assets</div>
+      </div>
+      <div class="controls">
+        <button id="playBtn" class="mono">▶ PLAY</button>
+        <div class="progress" id="progress"><div id="progressBar"></div></div>
+        <span class="mono" id="vtime">00:00</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

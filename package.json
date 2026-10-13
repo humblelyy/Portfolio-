@@ -1,0 +1,9 @@
+{
+  "name": "mahesh-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes serve@14 -l 3000 .",
+    "start": "npx --yes serve@14 -l 3000 ."
+  }
+}
