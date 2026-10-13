@@ -2,7 +2,7 @@
 
 ### Creative Designer · Video Editor · Developer
 
-I’m Mahesh M, a creative designer, video editor, and developer from Kasaragod, Kerala, India. I combine visual storytelling, motion design, and interactive web experiences to turn ideas into meaningful digital work.
+I’m a creative designer, video editor, and developer from Kasaragod, Kerala, India. I combine visual storytelling, motion design, and interactive web experiences to turn ideas into meaningful digital work.
 
 **Portfolio:** [maheshmadhav.vercel.app](https://maheshmadhav.vercel.app/)
 
