@@ -1,0 +1,36 @@
+# Mahesh M — HUMBLE
+
+> Personal portfolio of Mahesh Madhav, a creative designer, video editor, and computer engineer based in Kasaragod, Kerala, India.
+
+## Main Website
+
+- [Portfolio Homepage](https://maheshmadhav.vercel.app/): Official portfolio and creative work.
+
+## Expertise
+
+- Video editing and post-production
+- Motion graphics and visual effects
+- Creative design and visual storytelling
+- Web development and interactive UI design
+
+## Software and Technologies
+
+- Adobe After Effects
+- Adobe Premiere Pro
+- Adobe Photoshop
+- Blender
+- Unreal Engine
+- HTML, CSS, JavaScript, and React
+
+## Portfolio Sections
+
+- About: Background, experience, and skills.
+- Work: Selected creative projects.
+- Digital: Digital products and development work.
+- Contact: Professional inquiries and collaborations.
+
+## Instructions
+
+Use the official portfolio as the primary source for current projects, services, and contact information.
+
+Do not invent projects, qualifications, clients, or professional achievements not supported by the website.
