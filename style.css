@@ -369,3 +369,36 @@ body.ready .red-circle{transform:scale(1)}
   .morph-project .project-morph-description p{font-size:14px;line-height:1.7}
   .project-morph-links a,.project-morph-links .project-link-unavailable{font-size:10px;padding:10px 12px}
 }
+
+
+/* Edit 03 portrait playback correction.
+   The modal itself narrows for this clip, and the player becomes 9:16
+   so the portrait video is not surrounded by a wide landscape canvas. */
+.modal-box.portrait-modal {
+  width: min(520px, 100%);
+}
+.player.portrait {
+  width: min(100%, 300px);
+  aspect-ratio: 9 / 16;
+  height: auto;
+  margin-inline: auto;
+  background: #050509;
+}
+.player.portrait video {
+  width: 100%;
+  height: 100%;
+  max-height: min(72vh, 620px);
+  object-fit: contain;
+}
+.modal-box.portrait-modal .controls {
+  width: 100%;
+}
+@media (max-width: 560px) {
+  .modal { padding: 12px; }
+  .modal-box.portrait-modal { width: min(100%, 440px); padding: 14px; }
+  .player.portrait {
+    width: min(100%, 250px);
+    max-height: 62vh;
+  }
+  .player.portrait video { max-height: 62vh; }
+}

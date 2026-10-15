@@ -298,17 +298,31 @@
   /* Modal */
   const modal = $('#modal'), video = $('#video'), btn = $('#playBtn'), bar = $('#progressBar'), player = $('.player');
   const fmt = t => `${p(Math.floor(t / 60))}:${p(Math.floor(t % 60))}`;
+  const modalBox = $('.modal-box');
   function openModal(src, title) {
-    player.classList.remove('error');
+    const isPortraitClip = /Edit\s*03|Reel\s*\/\s*Portrait/i.test(title || '') ||
+      /project-05\.mp4(?:$|[?#])/i.test(src || '');
+    player.classList.remove('error', 'portrait');
+    modalBox.classList.toggle('portrait-modal', isPortraitClip);
+    if (isPortraitClip) player.classList.add('portrait');
     $('#modalTitle').textContent = title;
     video.pause(); video.removeAttribute('src'); video.load();
-    if (!src) { player.classList.add('error'); modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); return; }
+    if (!src) {
+      player.classList.add('error');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      return;
+    }
     video.src = src;
-    modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
     video.play().catch(() => {});
   }
   function closeModal() {
-    modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true');
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    player.classList.remove('portrait');
+    modalBox.classList.remove('portrait-modal');
     video.pause(); video.removeAttribute('src'); video.load(); bar.style.width = 0;
   }
   video.addEventListener('error', () => player.classList.add('error'));
