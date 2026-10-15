@@ -1,0 +1,245 @@
+PROJECT PROMPT — MAHESH M / HUMBLE PORTFOLIO Creator credit: Mahesh M
+(aka HUMBLE) Portfolio: https://maheshmadhav.vercel.app/ GitHub owner:
+https://github.com/humblelyy
+
+Build a cinematic, highly personal portfolio website for Mahesh M, also
+known as HUMBLE — a creative designer, video editor, and developer from
+Kasaragod, Kerala, India. The site should feel like a film editor’s
+workspace brought to life: bold typography, camera/viewfinder details,
+timeline-inspired project cards, editorial layouts, and smooth,
+intentional motion. Avoid generic AI-generated templates, excessive 3D
+cubes, meaningless decorative sections, and unnecessary effects.
+
+IMPORTANT CREDIT REQUIREMENT - Credit the creator clearly as “Designed
+and built by Mahesh M — HUMBLE”. - Include “Directed by Mahesh M” and
+“AKA HUMBLE” in the footer. - Preserve attribution in the README,
+metadata where appropriate, and any generated documentation. - Do not
+replace the creator’s name with the AI tool, template author, or another
+person. - Do not claim third-party assets or projects were created by
+Mahesh if they are only linked or showcased.
+
+VISUAL DIRECTION - Cinematic dark navy/near-black background with subtle
+grain and atmospheric blue/red glows. - Strong red accent (around
+#ff3b2f), warm cream text, and muted lavender/grey supporting text. -
+Large condensed display typography similar to Bebas Neue; DM Sans for
+readable body text; JetBrains Mono for technical labels and timecodes;
+Permanent Marker for handwritten annotations. - Use a film-camera /
+director’s-cut visual language: viewfinder corners, REC indicator,
+camera timecode, timeline ruler, clip labels, play icons, waveform
+motifs, frame counters, and editorial notes. - Keep the interface
+expressive and handmade-looking, not overly polished into a generic SaaS
+template. - Use the existing original portfolio assets where provided.
+Preserve image aspect ratios and composition. Never stretch images: use
+width/height appropriately, height:auto for natural images, and
+object-fit:contain when the full subject must remain visible. Use
+object-fit:cover only for intentional crops. - Support desktop, tablet,
+and mobile. On mobile, maintain legible typography, touch-friendly
+controls, no horizontal overflow, and lightweight animation.
+
+SITE STRUCTURE AND CONTENT
+
+1.  NAVIGATION
+
+-   Rounded, translucent glass-style navbar.
+-   Left: “MAHESH.” brand wordmark.
+-   Main links: About, Services, Work, Digital.
+-   Right: “LET’S TALK ↗” button linking to Contact.
+-   Do not show a separate Contact nav link when the CTA already serves
+    as the contact action.
+-   On mobile, keep the same visual identity but make navigation links
+    readable and touch-friendly. Do not shrink text excessively or hide
+    required links without providing an equally clear navigation
+    pattern.
+-   Keep blur and other expensive effects optimized for mobile devices.
+
+2.  HERO
+
+-   Full-screen cinematic hero with a subtle camera viewfinder.
+-   Display the name “MAHESH” in bold animated letters.
+-   Rotate or animate role text, including “CREATIVE DESIGNER”, with
+    supporting copy: “Visual storytelling meets technology.”
+-   Show the provided character/photo asset over a red circular graphic.
+-   Add the handwritten-style note “edit. create. build!”
+-   Include camera metadata such as “REC · CAM_01”, a running timecode,
+    “KERALA / INDIA”, and “4K · 24FPS”.
+-   Use a fast, tasteful entrance animation that does not make visitors
+    wait unnecessarily.
+
+3.  MOVING SKILL / PROCESS STRIPS
+
+-   Two continuous horizontal marquee strips: one red with cream text,
+    and one cream with dark text.
+-   Use short creative terms such as AFTER EFFECTS, PHOTOSHOP, FIGMA,
+    BLENDER, EDIT, CREATE, BUILD, and REPEAT, separated by graphic
+    symbols.
+-   Keep the loop seamless and continuously moving on desktop and
+    mobile.
+-   Do not depend only on scroll events or requestAnimationFrame loops
+    that may stall on mobile; prefer efficient CSS keyframe animation
+    where suitable.
+-   Respect reduced-motion preferences.
+
+4.  ABOUT
+
+-   Use a provided portrait/character asset with a small handwritten
+    annotation and editorial stamp.
+-   Heading: “HI, I’M MAHESH M”.
+-   Bio: “Diploma in Computer Engineering graduate, now studying Data
+    Analytics at Luminar, Kozhikode. Works where creative editing,
+    visual design and technology meet.”
+-   Display portfolio stats in a tasteful animated counter treatment: 5+
+    video edits, 4 digital builds, 6 disciplines. Keep these as the
+    source portfolio’s displayed stats and do not invent additional
+    metrics.
+
+5.  WHAT I DO / SERVICES
+
+-   Heading built around: “CREATE VISUALS. EDIT STORIES. BUILD
+    EXPERIENCES.”
+-   Present six interactive service rows: 01 Video Editing —
+    story-driven cuts, pacing, color and sound. 02 Motion Design —
+    kinetic type and animated graphics in After Effects. 03 Graphic
+    Design — posters, social visuals and brand assets. 04 Web / UI —
+    clean interfaces and responsive websites. 05 3D / Blender — models,
+    renders and 3D scenes. 06 Creative Tech — tools and experiments
+    where code meets craft.
+-   Use a consistent expandable/morphing preview interaction for service
+    rows. It should feel like the selected row expands into a
+    detail/preview panel rather than navigating away.
+-   Provide keyboard access, visible focus states, and close behavior
+    where relevant.
+
+6.  MY WORK / VIDEO TIMELINE
+
+-   Use a timeline/editor-inspired horizontal track with five project
+    cards: Edit 01 — Video Editing (assets/project-01.mp4) Edit 02 —
+    Cinematic (assets/project-02.mp4) Edit 03 — Reel / Portrait
+    (assets/project-03.mp4, if supplied) Edit 04 — Motion / Story
+    (assets/project-04.mp4) Edit 05 — Video Editing
+    (assets/project-05.mp4)
+-   Each clip should have a label, number, play affordance, subtle
+    waveform and distinct accent gradient.
+-   Selecting a clip should open a video modal/player with a clear close
+    button and usable controls.
+-   If a video file is missing or fails to load, show “PREVIEW
+    UNAVAILABLE”. Never show a broken player or imply that a nonexistent
+    file is available.
+-   Preserve Edit 03 even if its video asset is missing; show the
+    unavailable state until the correct file is provided.
+-   Video previews should be muted by default where appropriate, with
+    responsive sizing and playsinline behavior.
+
+7.  DIGITAL WORK
+
+-   Section heading: “BUILDING THINGS.”
+-   Include these projects, with detailed descriptions that explain the
+    project purpose, features, implementation, and relevant context only
+    when verified. Do not invent unsupported features:
+    -   Humble Studio — https://humblelyy.github.io/HumbleStudio/
+    -   Humble Studio Tool —
+        https://humblelyy.github.io/HumbleStudioTool/
+    -   AE Downgrader — link to the actual project/repository only if
+        verified; otherwise clearly mark the repository/link unavailable
+        rather than using an unrelated link.
+    -   Campus Connect — https://campusconnect43.42web.io/
+    -   Funk portfolio by Karan — https://funkvfx.vercel.app/
+    -   Funk GitHub repository — https://github.com/humblelyy/funk
+    -   Spotify Reimagined Login —
+        https://humblelyy.github.io/spotify-reimagined-login/
+-   Use the SAME expandable/morphing interaction mechanism as the “WHAT
+    I DO” service rows. Do not substitute a plain inline video expansion
+    or a separate generic card layout.
+-   When a project row is selected, open a smooth morphing dialog/panel
+    that contains, in this order:
+    1.  Project headline
+    2.  Video preview at the top, immediately under the headline
+    3.  Complete, detailed project description
+    4.  “Open Project” link
+    5.  “GitHub Repo” link if a verified repository exists; otherwise
+        show “REPO UNAVAILABLE”.
+-   Do not place a giant project number or decorative number panel above
+    the video.
+-   Project videos should autoplay muted and loop when the panel opens,
+    where browser policies allow. Handle autoplay rejection gracefully.
+-   If no preview video exists or the video fails to load, show “PREVIEW
+    UNAVAILABLE” in the preview area.
+-   Keep the close button, keyboard accessibility, Escape-to-close, and
+    a mobile-friendly modal layout.
+-   Descriptions should be complete and useful, not one-line summaries.
+    Separate confirmed facts from unknown information. Never make up
+    functionality, technologies, statistics, or ownership claims.
+
+8.  CURRENTLY / LEARNING
+
+-   Heading: “LEARNING DATA ANALYTICS.”
+-   Supporting text: “Currently studying Data Analytics at Luminar,
+    Kozhikode — learning to find the story inside numbers, the same way
+    an editor finds it inside footage.”
+-   Add the small chart-style graphic, related tags, and supplied
+    character asset.
+
+9.  CONTACT
+
+-   Large “HELLO” visual treatment and animated “LET’S” heading.
+-   Copy: “Have a project, an edit or a digital idea? Let’s make
+    something worth watching.”
+-   Email: maheshmadhav620@gmail.com
+-   Social links: Instagram / Editing:
+    https://instagram.com/learn_with.humble Instagram / Personal:
+    https://instagram.com/humble.y YouTube:
+    https://youtube.com/@humbleae LinkedIn:
+    https://linkedin.com/in/mahesh-madhav-602683357 GitHub:
+    https://github.com/humblelyy
+-   Keep contact links accessible and readable. Do not expose private
+    information beyond the contact details explicitly supplied here.
+
+10. FOOTER
+
+-   “DIRECTED BY — MAHESH M”
+-   “EDITED IN — AFTER EFFECTS · BLENDER”
+-   “© 2026 — AKA HUMBLE”
+-   Include clear creator credit: “Designed and built by Mahesh M —
+    HUMBLE”.
+
+LOADING AND PERFORMANCE - Keep the loading screen simple and brief: the
+MAHESH. wordmark, a slim progress line, and a quick fade. Avoid
+elaborate countdowns, giant circular loaders, or long blocking intros. -
+Provide skeleton loading placeholders for media/content that is still
+loading. Skeletons must disappear when the actual content loads or show
+a clear unavailable state if it fails. - Optimize images using WebP/AVIF
+where suitable, but keep source originals when needed. Declare
+dimensions to reduce layout shift. - Lazy-load below-the-fold images and
+video previews. Load heavy video only when needed. - Reduce unnecessary
+continuous JavaScript loops, expensive blur, parallax, and animation
+complexity on mobile. - Use CSS transforms/opacity for motion where
+practical. - Honor prefers-reduced-motion. - Ensure the ticker remains
+moving on touch devices and all essential content stays visible if
+animation is reduced or disabled.
+
+TECHNICAL REQUIREMENTS - Use plain HTML, CSS and JavaScript consistent
+with the existing project, unless the project baseline explicitly
+requires otherwise. - Keep code organized and maintainable; avoid adding
+a framework or build system without a clear need. - Preserve the
+existing project file structure and relative asset paths. - Keep SEO and
+sharing metadata accurate: title “Mahesh Madhav”, description “Mahesh M
+— Creative Designer, Video Editor and Computer Engineer from Kasaragod,
+Kerala, India.”, Open Graph and Twitter image metadata using valid
+existing assets. - Preserve or correctly update robots.txt, sitemap.xml,
+llms.txt, favicon and Vercel configuration. - Validate every local asset
+path and every project URL. - Do not claim a video preview is available
+if its file is missing. - Test responsive layouts at mobile, tablet and
+desktop widths, interactions, keyboard controls, media
+loading/fallbacks, browser console, and deployment build/preview before
+declaring the work complete. - Provide a concise test report listing
+what was tested, what passed, and any remaining limitations.
+
+FINAL QUALITY BAR The finished site should feel like Mahesh M’s own
+cinematic creative portfolio, not a generic template. Prioritize a clear
+identity, purposeful movement, original work, accessible navigation,
+correct media behavior, high-quality mobile performance, and honest
+project details.
+
+CREDIT / ATTRIBUTION Created and owned by Mahesh M — HUMBLE. Portfolio:
+https://maheshmadhav.vercel.app/ GitHub: https://github.com/humblelyy
+When this prompt is reused to build or modify the site, retain visible
+credit to Mahesh M — HUMBLE and do not remove attribution.
