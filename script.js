@@ -182,12 +182,22 @@
       ],
       live: 'https://campusconnect43.42web.io/'
     },
-    'Funk': {
+    'Karan Orai — VFX Portfolio': {
       paragraphs: [
-        'Funk is Karan’s personal creative portfolio, presenting his work across video editing, visual effects and motion-driven design. The site uses a cinematic, dark interface with bold typography and expressive visuals to give the work a strong identity.',
-        'This portfolio project is included as a live website and a screen-recorded preview. Open the live site to explore the complete experience and browse the work directly; the GitHub repository is also linked for the source project.'
+        'This is a client portfolio created for Karan Orai to present his creative identity and showcase work related to visual effects, video editing and motion-driven design. The project is presented as a dedicated portfolio experience rather than as part of Mahesh’s personal portfolio brand.',
+        'The website uses a cinematic visual direction, bold typography and expressive imagery to give the featured work a distinctive presentation. Visitors can open the live site to explore the complete experience and navigate through Karan’s portfolio directly.',
+        'This entry documents Mahesh M — HUMBLE’s client work for Karan Orai. The linked repository is provided for project/source reference, while the live website is the best place to experience the finished portfolio.'
       ],
       live: 'https://funkvfx.vercel.app/', repo: 'https://github.com/humblelyy/funk'
+    },
+    'Spotify Reimagined Login': {
+      paragraphs: [
+        'Spotify Reimagined Login is an independent front-end project that reinterprets the Spotify login-page experience. It explores the presentation of a familiar sign-in interface through a focused layout, visual hierarchy, typography and Spotify-inspired styling.',
+        'The project is a UI and front-end development showcase. The live demo lets visitors view the implemented interface, while the linked GitHub repository provides access to the project source code.',
+        'This is an independent portfolio project and is not an official Spotify product or login service.'
+      ],
+      live: 'https://humblelyy.github.io/spotify-reimagined-login/',
+      repo: 'https://github.com/humblelyy/spotify-reimagined-login'
     }
   };
   $$('.projects .project').forEach((card) => {
