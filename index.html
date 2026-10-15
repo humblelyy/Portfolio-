@@ -30,13 +30,12 @@
 </head>
 <body class="is-loading">
   <!-- Loader -->
-  <div class="loader" id="loader">
-    <span class="cross cross-h"></span><span class="cross cross-v"></span>
-    <div class="loader-ring">
-      <svg viewBox="0 0 200 200"><circle class="ring-bg" cx="100" cy="100" r="90"/><circle class="ring-fill" id="ringFill" cx="100" cy="100" r="90"/></svg>
-      <span class="loader-num" id="loaderNum">3</span>
+  <div class="loader" id="loader" aria-label="Loading portfolio">
+    <div class="loader-inner">
+      <span class="loader-wordmark">MAHESH<span>.</span></span>
+      <span class="loader-label mono">CREATIVE DESIGNER · VIDEO EDITOR</span>
+      <div class="loader-progress" aria-hidden="true"><span id="loaderProgress"></span></div>
     </div>
-    <span class="loader-label mono">ROLLING · TAKE 01</span>
   </div>
 
   <div class="grain"></div>
@@ -47,7 +46,7 @@
   <nav class="nav">
     <a class="brand" href="#top" data-cursor="HI!">MAHESH<span>.</span></a>
     <div class="nav-links">
-      <a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#digital">Digital</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#digital">Digital</a>
     </div>
     <a class="nav-cta" href="#contact" data-cursor="HI!">LET'S TALK ↗</a>
   </nav>
@@ -68,7 +67,7 @@
         </div>
         <div class="hero-visual" id="heroVisual">
           <div class="red-circle"></div>
-          <img class="hero-photo" id="heroPhoto" src="assets/character-arms-crossed.png" alt="Mahesh with arms crossed">
+          <img class="hero-photo" id="heroPhoto" src="assets/character-arms-crossed.png" alt="Mahesh with arms crossed" width="1024" height="1536" fetchpriority="high">
           <span class="note hero-note">edit. create. build!</span>
         </div>
       </div>
@@ -83,7 +82,7 @@
     <!-- ABOUT -->
     <section class="about section" id="about">
       <div class="about-card reveal">
-        <img class="parallax" id="sitPhoto" src="assets/character-sitting.png" alt="Mahesh sitting" loading="lazy">
+        <img class="parallax" id="sitPhoto" src="assets/character-sitting.png" alt="Mahesh sitting" loading="lazy" width="1024" height="1536">
         <span class="note about-note">a little about me ↘</span>
         <div class="stamp">
           <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
@@ -127,7 +126,7 @@
         <div class="track" id="track">
           <article class="clip" data-video="assets/project-01.mp4" data-title="Edit 01 — Video Editing" data-cursor="PLAY" style="--g1:#ff3b2f;--g2:#5a1030"><div class="glare"></div><span class="tag mono">CLIP_01.MP4</span><span class="big-num">01</span><div class="play">▶</div><div class="clip-info"><h4>Edit 01</h4><small class="mono">VIDEO EDITING</small></div><div class="wave"></div></article>
           <article class="clip" data-video="assets/project-02.mp4" data-title="Edit 02 — Cinematic" data-cursor="PLAY" style="--g1:#3245ff;--g2:#120f40"><div class="glare"></div><span class="tag mono">CLIP_02.MP4</span><span class="big-num">02</span><div class="play">▶</div><div class="clip-info"><h4>Edit 02</h4><small class="mono">CINEMATIC</small></div><div class="wave"></div></article>
-          <article class="clip tall" data-video="assets/project-03.mp4" data-title="Edit 03 — Reel / Portrait" data-cursor="PLAY" style="--g1:#ffb02e;--g2:#7a2a10"><div class="glare"></div><span class="tag mono">CLIP_03.MP4</span><span class="big-num">03</span><div class="play">▶</div><div class="clip-info"><h4>Edit 03</h4><small class="mono">REEL / PORTRAIT</small></div><div class="wave"></div></article>
+          <article class="clip tall unavailable" data-video="" data-title="Edit 03 — Reel / Portrait" data-cursor="PREVIEW" style="--g1:#ffb02e;--g2:#7a2a10"><div class="glare"></div><span class="tag mono">CLIP_03.MP4</span><span class="big-num">03</span><div class="play">▶</div><div class="clip-info"><h4>Edit 03</h4><small class="mono">REEL / PORTRAIT</small></div><div class="wave"></div><span class="clip-status mono">PREVIEW UNAVAILABLE</span></article>
           <article class="clip" data-video="assets/project-04.mp4" data-title="Edit 04 — Motion / Story" data-cursor="PLAY" style="--g1:#1fc8a0;--g2:#0c3a40"><div class="glare"></div><span class="tag mono">CLIP_04.MP4</span><span class="big-num">04</span><div class="play">▶</div><div class="clip-info"><h4>Edit 04</h4><small class="mono">MOTION / STORY</small></div><div class="wave"></div></article>
           <article class="clip" data-video="assets/project-05.mp4" data-title="Edit 05 — Video Editing" data-cursor="PLAY" style="--g1:#b45cff;--g2:#2a0f50"><div class="glare"></div><span class="tag mono">CLIP_05.MP4</span><span class="big-num">05</span><div class="play">▶</div><div class="clip-info"><h4>Edit 05</h4><small class="mono">VIDEO EDITING</small></div><div class="wave"></div></article>
         </div>
@@ -139,13 +138,20 @@
       <div class="digital-head">
         <div><span class="label mono">[ 04 — DIGITAL WORK ]</span>
           <h2 class="heading mask big"><span class="line"><span>BUILDING</span></span><span class="line"><span class="outline">THINGS.</span></span></h2></div>
-        <img class="digital-photo reveal" src="assets/character-arms-crossed-2.png" alt="Mahesh standing" loading="lazy">
+        <img class="digital-photo reveal" src="assets/character-arms-crossed-2.png" alt="Mahesh standing" loading="lazy" width="1024" height="1536">
       </div>
       <div class="projects">
-        <a class="project" href="https://humblelyy.github.io/HumbleStudio/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">01</span><h3>Humble Studio</h3><small class="mono">WEB · STUDIO</small><i class="arrow">↗</i></a>
+        <article class="project project-expandable" data-preview="assets/project-01.mp4" data-project-title="Humble Studio">
+          <button class="project-toggle" type="button" aria-expanded="false"><span class="mono">01</span><h3>Humble Studio</h3><small class="mono">WEB · STUDIO</small><i class="arrow">↗</i></button>
+          <div class="project-preview"><video muted playsinline loop preload="none" aria-label="Humble Studio preview"></video><p class="preview-status mono">PREVIEW UNAVAILABLE</p><a href="https://humblelyy.github.io/HumbleStudio/" target="_blank" rel="noreferrer">OPEN PROJECT ↗</a></div>
+        </article>
         <a class="project" href="https://humblelyy.github.io/HumbleStudioTool/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">02</span><h3>Humble Studio Tool</h3><small class="mono">TOOL · WEB APP</small><i class="arrow">↗</i></a>
         <a class="project" href="https://humblelyy.github.io/HumbleStudio/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">03</span><h3>AE Downgrader</h3><small class="mono">AFTER EFFECTS · UTILITY</small><i class="arrow">↗</i></a>
         <a class="project" href="https://campusconnect43.42web.io/" target="_blank" rel="noreferrer" data-cursor="OPEN"><span class="mono">04</span><h3>Campus Connect</h3><small class="mono">PLATFORM · WEB</small><i class="arrow">↗</i></a>
+        <article class="project project-expandable" data-preview="assets/funk-portfolio-preview.mp4" data-project-title="Funk — Karan's Portfolio">
+          <button class="project-toggle" type="button" aria-expanded="false"><span class="mono">05</span><h3>Funk</h3><small class="mono">PORTFOLIO · VFX</small><i class="arrow">↗</i></button>
+          <div class="project-preview"><video muted playsinline loop preload="none" aria-label="Funk portfolio preview"></video><p class="preview-status mono">PREVIEW UNAVAILABLE</p><a href="https://funkvfx.vercel.app/" target="_blank" rel="noreferrer">LIVE SITE ↗</a><a href="https://github.com/humblelyy/funk" target="_blank" rel="noreferrer">GITHUB ↗</a></div>
+        </article>
       </div>
     </section>
 
@@ -161,7 +167,7 @@
         <div class="chart" id="chart">
           <i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:50%"></i><i style="--h:85%"></i><i style="--h:70%"></i><i style="--h:95%"></i><i style="--h:60%"></i>
         </div>
-        <img class="now-photo" src="assets/character-back.png" alt="Mahesh from behind" loading="lazy">
+        <img class="now-photo" src="assets/character-back.png" alt="Mahesh from behind" loading="lazy" width="1024" height="1536">
       </div>
     </section>
 

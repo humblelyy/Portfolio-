@@ -3,35 +3,28 @@
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-  /* Loader countdown */
-  const steps = ['Lets', 'GO'];
-  const ring = $('#ringFill'), num = $('#loaderNum'), C = 565.5;
-  let i = 0;
-  const tick = () => {
-    num.textContent = steps[i];
-    ring.style.transition = 'none';
-    ring.style.strokeDashoffset = C;
-    ring.getBoundingClientRect();
-    ring.style.transition = 'stroke-dashoffset .6s cubic-bezier(.77,0,.18,1)';
-    ring.style.strokeDashoffset = 0;
-    i++;
-    if (i < steps.length) setTimeout(tick, 650);
-    else setTimeout(() => {
-      $('#loader').classList.add('done');
-      document.body.classList.remove('is-loading');
-      document.body.classList.add('ready');
-    }, 550);
+  /* Simple loader: short progress reveal, then get out of the way. */
+  const loader = $('#loader');
+  const loaderProgress = $('#loaderProgress');
+  const isMobile = matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+  const finishLoader = () => {
+    loader.classList.add('done');
+    document.body.classList.remove('is-loading');
+    document.body.classList.add('ready');
   };
-  tick();
-  $$('.hero-name span').forEach((s, n) => (s.style.transitionDelay = `${0.9 + n * 0.08}s`));
+  requestAnimationFrame(() => { if (loaderProgress) loaderProgress.style.width = '100%'; });
+  setTimeout(finishLoader, isMobile ? 350 : 600);
+  $$('.hero-name span').forEach((s, n) => (s.style.transitionDelay = `${isMobile ? 0 : 0.15 + n * 0.05}s`));
 
   /* Timecode */
   const tc = $('#timecode'), t0 = performance.now(), p = n => String(n).padStart(2, '0');
-  (function loop() {
-    const ms = performance.now() - t0, s = Math.floor(ms / 1000);
-    tc.textContent = `${p(Math.floor(s / 3600))}:${p(Math.floor(s / 60) % 60)}:${p(s % 60)}:${p(Math.floor((ms % 1000) / (1000 / 24)))}`;
-    requestAnimationFrame(loop);
-  })();
+  const updateTimecode = () => {
+    const ms = performance.now() - t0, sec = Math.floor(ms / 1000);
+    tc.textContent = `${p(Math.floor(sec / 3600))}:${p(Math.floor(sec / 60) % 60)}:${p(sec % 60)}:${p(Math.floor((ms % 1000) / (1000 / 24)))}`;
+  };
+  updateTimecode();
+  setInterval(updateTimecode, isMobile ? 500 : 100);
+
 
   /* Role cycler */
   const roles = ['CREATIVE DESIGNER', 'VIDEO EDITOR', 'COMPUTER ENGINEER', '3D ARTIST'];
@@ -40,7 +33,7 @@
     r = (r + 1) % roles.length;
     role.textContent = roles[r]; role.dataset.text = roles[r];
     role.classList.remove('glitch'); void role.offsetWidth; role.classList.add('glitch');
-  }, 2000);
+  }, isMobile ? 5000 : 2500);
 
   /* Cursor */
   const cur = $('#cursor'), curText = $('#cursorText');
@@ -63,18 +56,29 @@
   const tracks = $$('.strip-track');
   const words = ['AFTER EFFECTS ✦ PHOTOSHOP ✦ FIGMA ✦ BLENDER ✦', 'EDIT ✦ CREATE ✦ BUILD ✦ REPEAT ✦'];
   tracks.forEach((t, k) => { t.innerHTML = Array(8).fill(`<span>${words[k]}</span>`).join(''); t._x = 0; });
-  let lastY = scrollY, boost = 0;
-  (function strips() {
-    const dy = Math.abs(scrollY - lastY); lastY = scrollY;
-    boost += (Math.min(dy, 60) - boost) * 0.1;
-    tracks.forEach(t => {
-      const half = t.scrollWidth / 2, dir = +t.dataset.dir;
-      t._x -= (1 + boost * 0.4) * dir;
-      if (t._x <= -half) t._x += half; if (t._x > 0) t._x -= half;
-      t.style.transform = `translateX(${t._x}px)`;
+  if (isMobile) {
+    // CSS animation is more reliable than a scroll-driven RAF loop on mobile browsers.
+    tracks.forEach(t => t.classList.add('strip-track-mobile'));
+  } else {
+    let lastY = scrollY, boost = 0, rafId = 0;
+    const strips = () => {
+      const dy = Math.abs(scrollY - lastY); lastY = scrollY;
+      boost += (Math.min(dy, 60) - boost) * 0.1;
+      tracks.forEach(t => {
+        const half = t.scrollWidth / 2, dir = +t.dataset.dir;
+        t._x -= (1 + boost * 0.4) * dir;
+        if (t._x <= -half) t._x += half; if (t._x > 0) t._x -= half;
+        t.style.transform = `translateX(${t._x}px)`;
+      });
+      rafId = requestAnimationFrame(strips);
+    };
+    strips();
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(rafId);
+      else strips();
     });
-    requestAnimationFrame(strips);
-  })();
+  }
+
 
   /* Reveals, counters, chart */
   const io = new IntersectionObserver(es => es.forEach(e => {
@@ -94,7 +98,7 @@
     hp.style.transform = `rotateY(${x * 18}deg) rotateX(${-y * 12}deg)`;
   });
   const sit = $('#sitPhoto');
-  addEventListener('scroll', () => {
+  if (fine) addEventListener('scroll', () => {
     const b = sit.parentElement.getBoundingClientRect();
     sit.style.transform = `translateX(-50%) translateY(${(b.top + b.height / 2 - innerHeight / 2) * -0.08}px)`;
   }, { passive: true });
@@ -148,6 +152,103 @@
     ov.addEventListener('click', close);
     m.querySelector('.morph-close').addEventListener('click', close);
   }));
+  /* Digital work uses the same morphing-dialog mechanism as WHAT I DO. */
+  const digitalDetails = {
+    'Humble Studio': {
+      paragraphs: [
+        'Humble Studio is a creative-focused web space built around useful tools and resources for editors, designers and makers. The experience uses a dark visual identity, bold typography and a cinematic presentation to make the tools feel like part of one coherent studio rather than a disconnected list of links.',
+        'The project focuses on clear navigation, responsive layouts and a polished browsing experience across desktop and mobile. It is designed to give each tool its own place while keeping the overall interface consistent with the HUMBLE brand.'
+      ],
+      live: 'https://humblelyy.github.io/HumbleStudio/', repo: 'https://github.com/humblelyy/HumbleStudio'
+    },
+    'Humble Studio Tool': {
+      paragraphs: [
+        'Humble Studio Tool is a companion project for the HUMBLE creative workflow. It brings a focused utility experience into a single interface, with an emphasis on making creative work easier to manage and keeping the UI consistent with the wider studio identity.',
+        'The project is part of an ongoing effort to build practical tools around video editing and creative production, prioritising a straightforward interface, responsive behaviour and a cohesive dark visual style.'
+      ],
+      live: 'https://humblelyy.github.io/HumbleStudioTool/'
+    },
+    'AE Downgrader': {
+      paragraphs: [
+        'Humble AE Downgrader is a utility concept for After Effects projects. Its purpose is to make version hand-offs less frustrating by helping users work with project files intended for different After Effects versions, rather than relying on a confusing manual workflow.',
+        'The planned experience centres on selecting a project file, choosing a target version and keeping the process clear. Compatibility depends on the project contents and the After Effects versions involved; a downgrade cannot guarantee that every effect or feature will translate perfectly.'
+      ],
+      live: 'https://humblelyy.github.io/HumbleStudio/'
+    },
+    'Campus Connect': {
+      paragraphs: [
+        'Campus Connect is a college-focused digital hub intended to bring everyday campus information and student services into one place. It includes separate student and administrator access and a dashboard designed around common campus needs.',
+        'The planned modules include a digital notice board, smart complaint box, canteen updates, attendance information, placement-cell resources and campus events. The goal is to make college updates easier to find and reduce the need to move between separate channels.'
+      ],
+      live: 'https://campusconnect43.42web.io/'
+    },
+    'Funk': {
+      paragraphs: [
+        'Funk is Karan’s personal creative portfolio, presenting his work across video editing, visual effects and motion-driven design. The site uses a cinematic, dark interface with bold typography and expressive visuals to give the work a strong identity.',
+        'This portfolio project is included as a live website and a screen-recorded preview. Open the live site to explore the complete experience and browse the work directly; the GitHub repository is also linked for the source project.'
+      ],
+      live: 'https://funkvfx.vercel.app/', repo: 'https://github.com/humblelyy/funk'
+    }
+  };
+  $$('.projects .project').forEach((card) => {
+    const row = card.matches('a.project') ? card : $('.project-toggle', card);
+    if (!row) return;
+    row.addEventListener('click', e => {
+      if (morphOpen) return;
+      if (card.matches('a.project')) e.preventDefault();
+      const title = ($('h3', card) || row).textContent.trim();
+      const subtitle = ($('small', card)?.textContent || 'DIGITAL PROJECT').trim();
+      const src = card.dataset.preview || '';
+      const info = digitalDetails[title] || { paragraphs: ['Project details are not available yet. More information will be added when verified project notes are provided.'] };
+      const liveHref = info.live || (card.matches('a.project') ? card.href : card.querySelector('.project-preview a[href]')?.href) || '';
+      const repoHref = info.repo || card.dataset.repo || '';
+      const r = row.getBoundingClientRect();
+      const ov = document.createElement('div'); ov.className = 'morph-overlay';
+      const m = document.createElement('div'); m.className = 'morph morph-project';
+      m.setAttribute('role','dialog'); m.setAttribute('aria-modal','true');
+      m.setAttribute('aria-label', title + ' project details');
+      m.innerHTML = `<div class="morph-scroll"><h3 class="project-morph-title"></h3>
+        <div class="project-morph-media"><video muted playsinline loop autoplay preload="none"></video><div class="project-morph-unavailable mono">PREVIEW UNAVAILABLE</div></div>
+        <div class="sub mono project-morph-sub"></div><div class="project-morph-description"></div>
+        <div class="project-morph-links"></div></div><button class="morph-close" aria-label="Close" data-cursor="CLOSE">×</button>`;
+      m.querySelector('.project-morph-title').textContent = title;
+      m.querySelector('.project-morph-sub').textContent = subtitle;
+      const descEl = m.querySelector('.project-morph-description');
+      info.paragraphs.forEach(text => { const p = document.createElement('p'); p.textContent = text; descEl.append(p); });
+      const media = m.querySelector('.project-morph-media'), video = media.querySelector('video'), unavailable = media.querySelector('.project-morph-unavailable');
+      if (src) {
+        video.src = src;
+        video.addEventListener('loadeddata', () => { unavailable.style.display='none'; video.style.display='block'; video.play().catch(()=>{}); }, {once:true});
+        video.addEventListener('error', () => { video.pause(); video.style.display='none'; unavailable.style.display='grid'; }, {once:true});
+        video.load(); video.play().catch(()=>{});
+      } else { video.style.display='none'; unavailable.style.display='grid'; }
+      const linksEl = m.querySelector('.project-morph-links');
+      if (liveHref) {
+        const a = document.createElement('a'); a.href = liveHref; a.textContent = 'OPEN PROJECT ↗'; a.target = '_blank'; a.rel = 'noreferrer'; linksEl.append(a);
+      } else {
+        const unavailableLink = document.createElement('span'); unavailableLink.className = 'project-link-unavailable mono'; unavailableLink.textContent = 'PROJECT LINK UNAVAILABLE'; linksEl.append(unavailableLink);
+      }
+      if (repoHref) {
+        const a = document.createElement('a'); a.href = repoHref; a.textContent = 'GITHUB REPO ↗'; a.target = '_blank'; a.rel = 'noreferrer'; linksEl.append(a);
+      } else {
+        const unavailableRepo = document.createElement('span'); unavailableRepo.className = 'project-link-unavailable mono'; unavailableRepo.textContent = 'REPO UNAVAILABLE'; linksEl.append(unavailableRepo);
+      }
+      Object.assign(m.style,{top:r.top+'px',left:r.left+'px',width:r.width+'px',height:r.height+'px'});
+      document.body.append(ov,m); document.body.style.overflow='hidden';
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        const w=Math.min(620,innerWidth-28), h=Math.min(innerHeight*.88,760);
+        Object.assign(m.style,{top:(innerHeight-h)/2+'px',left:(innerWidth-w)/2+'px',width:w+'px',height:h+'px'});
+        m.classList.add('open'); ov.classList.add('open');
+      }));
+      const close=()=>{
+        video.pause(); video.removeAttribute('src'); video.load();
+        const rr=row.getBoundingClientRect(); m.classList.remove('open'); ov.classList.remove('open');
+        Object.assign(m.style,{top:rr.top+'px',left:rr.left+'px',width:rr.width+'px',height:rr.height+'px'});
+        setTimeout(()=>{m.remove();ov.remove();document.body.style.overflow='';morphOpen=null;},600);
+      };
+      morphOpen=close; ov.addEventListener('click',close); m.querySelector('.morph-close').addEventListener('click',close);
+    });
+  });
   addEventListener('keydown', e => { if (e.key === 'Escape' && morphOpen) morphOpen(); });
 
   /* Ruler + playhead + clips */
@@ -169,14 +270,16 @@
   }, { passive: false });
 
   $$('.clip').forEach(c => {
-    $('.wave', c).innerHTML = Array.from({ length: 40 }, () => `<i style="--h:${20 + Math.random() * 80}%;--d:${(Math.random() * 1.2).toFixed(2)}s"></i>`).join('');
-    c.addEventListener('mousemove', e => {
-      const b = c.getBoundingClientRect(), x = (e.clientX - b.left) / b.width, y = (e.clientY - b.top) / b.height;
-      c.style.transform = `perspective(900px) rotateY(${(x - 0.5) * 14}deg) rotateX(${(0.5 - y) * 14}deg)`;
-      c.style.setProperty('--mx', x * 100 + '%'); c.style.setProperty('--my', y * 100 + '%');
-    });
-    c.addEventListener('mouseleave', () => (c.style.transform = ''));
-    c.addEventListener('click', () => openModal(c.dataset.video, c.dataset.title));
+    $('.wave', c).innerHTML = Array.from({ length: isMobile ? 12 : 40 }, () => `<i style="--h:${20 + Math.random() * 80}%;--d:${(Math.random() * 1.2).toFixed(2)}s"></i>`).join('');
+    if (fine) {
+      c.addEventListener('mousemove', e => {
+        const b = c.getBoundingClientRect(), x = (e.clientX - b.left) / b.width, y = (e.clientY - b.top) / b.height;
+        c.style.transform = `perspective(900px) rotateY(${(x - 0.5) * 14}deg) rotateX(${(0.5 - y) * 14}deg)`;
+        c.style.setProperty('--mx', x * 100 + '%'); c.style.setProperty('--my', y * 100 + '%');
+      });
+      c.addEventListener('mouseleave', () => (c.style.transform = ''));
+    }
+    c.addEventListener('click', () => { if (!c.dataset.video) { $('.player', modal)?.classList.add('error'); openModal('', c.dataset.title); } else openModal(c.dataset.video, c.dataset.title); });
   });
 
   /* Modal */
@@ -184,7 +287,10 @@
   const fmt = t => `${p(Math.floor(t / 60))}:${p(Math.floor(t % 60))}`;
   function openModal(src, title) {
     player.classList.remove('error');
-    $('#modalTitle').textContent = title; video.src = src;
+    $('#modalTitle').textContent = title;
+    video.pause(); video.removeAttribute('src'); video.load();
+    if (!src) { player.classList.add('error'); modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); return; }
+    video.src = src;
     modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
     video.play().catch(() => {});
   }
