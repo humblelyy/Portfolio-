@@ -40,7 +40,8 @@ My focus is on creating work that feels intentional, looks distinctive, and deli
 Explore my latest creative projects, video edits, design experiments, and development work on my portfolio.
 
 **→ [Explore My Portfolio](https://maheshmadhav.vercel.app/)**
-** [Want Prompt !? Click here](https://github.com/humblelyy/Portfolio-/blob/main/Portfolio%20PROMPT.txt)**
+
+**[Want Prompt !? Click here](https://github.com/humblelyy/Portfolio-/blob/main/Portfolio%20PROMPT.txt)**
 
 ## Find Me Online
 
