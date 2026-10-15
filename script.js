@@ -289,7 +289,10 @@
       });
       c.addEventListener('mouseleave', () => (c.style.transform = ''));
     }
-    c.addEventListener('click', () => { if (!c.dataset.video) { $('.player', modal)?.classList.add('error'); openModal('', c.dataset.title); } else openModal(c.dataset.video, c.dataset.title); });
+    c.addEventListener('click', () => {
+      const isPortrait = c.classList.contains('tall');
+      openModal(c.dataset.video || '', c.dataset.title, isPortrait);
+    });
   });
 
   /* Modal */
