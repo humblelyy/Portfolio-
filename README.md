@@ -1,10 +1,10 @@
-# Mahesh M — HUMBLE
+# Mahesh M 
 
 ### Creative Designer · Video Editor · Developer
 
 I’m a creative designer, video editor, and developer from Kasaragod, Kerala, India. I combine visual storytelling, motion design, and interactive web experiences to turn ideas into meaningful digital work.
 
-**Portfolio:** [maheshmadhav.vercel.app](https://maheshmadhav.vercel.app/)
+**Portfolio:** [maheshmadhav.com](https://maheshmadhav.vercel.app/)
 
 ---
 
